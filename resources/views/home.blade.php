@@ -19,5 +19,10 @@
             </div>
         </div>
     </div>
+    <div clas="link">
+    <a href="{{ url('/list') }}"> <p>Product list page </p></a>
+    <a href="{{ url('/add') }}"><p> new Product add page</p> </a>
+    <a href="{{ url('/contact') }}"><p> Contact page </p></a>
+    </div>
 </div>
 @endsection
