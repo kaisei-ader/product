@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home','HomeController@index');
 
 Route::get('/list','listController@index');
 Route::get('/add','addController@index');
