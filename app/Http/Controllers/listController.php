@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class listController extends Controller
 {
     public function index() {
-
-        $products = DB::select('select * from items');
+        $products = DB::table('items')->paginate(5);
         $data = ['msg' => 'ハロー', 'products' => $products];
         return view('productlist',$data);
     }
