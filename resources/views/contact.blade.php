@@ -29,9 +29,9 @@
  
         <label>電話番号</label>
         <input
-             name="title"
+             name="tell"
              value="{{ old('tell') }}"
-             type="text">
+             type="tel">
         @if ($errors->has('tell'))
             <p class="error-message">{{ $errors->first('tell') }}</p>
         @endif
@@ -39,12 +39,12 @@
  
         <label>お問い合わせ内容</label>
         <textarea name="message">{{ old('message') }}</textarea>
-        @if ($errors->has('body'))
+        @if ($errors->has('message'))
         <p class="error-message">{{ $errors->first('message') }}</p>
         @endif
  
         <button type="submit">
-            入力内容確認
+            送信
         </button>
     </form>
     </body>
