@@ -24,8 +24,5 @@
     <a href="{{ url('/add') }}"><p> new Product add page</p> </a>
     <a href="{{ url('/contact') }}"><p> Contact page </p></a>
     </div>
-    <div class="user_id">
-        {{Auth::id()}}
-    </div>
 </div>
 @endsection
