@@ -27,7 +27,7 @@
         value="{{ $inputs['price'] }}"
         type="hidden">
     <button type="submit" name="back" value="true">
-        入力内容修正
+        戻る
     </button>
     <button type="submit" name="submit" value="true">
         送信する

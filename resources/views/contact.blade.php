@@ -6,6 +6,46 @@
         <title>Contact</title>
     </head>
     <body>
-    <h1>Contact　です</h1>
+    <form method="POST" action="{{ route('contact.confirm') }}">
+        @csrf
+
+        <label>お名前</label>
+        <input
+            name="name"
+            value="{{ old('name') }}"
+            type="text">
+        @if ($errors->has('name'))
+            <p class="error-message">{{ $errors->first('name') }}</p>
+        @endif
+
+        <label>メールアドレス</label>
+        <input
+            name="email"
+            value="{{ old('email') }}"
+            type="text">
+        @if ($errors->has('email'))
+            <p class="error-message">{{ $errors->first('email') }}</p>
+        @endif
+ 
+        <label>電話番号</label>
+        <input
+             name="title"
+             value="{{ old('tell') }}"
+             type="text">
+        @if ($errors->has('tell'))
+            <p class="error-message">{{ $errors->first('tell') }}</p>
+        @endif
+ 
+ 
+        <label>お問い合わせ内容</label>
+        <textarea name="message">{{ old('message') }}</textarea>
+        @if ($errors->has('body'))
+        <p class="error-message">{{ $errors->first('message') }}</p>
+        @endif
+ 
+        <button type="submit">
+            入力内容確認
+        </button>
+    </form>
     </body>
 </html>
