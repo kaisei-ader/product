@@ -1,36 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\ProductPost;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function showAddForm() {
+    public function showAddForm() 
+    {
               
         return view('newproductadd');
     }
 
-    public function showList() {
+    public function showList()
+    {
         $products = DB::table('items')->where('user_id',Auth::id())->paginate(5);
         $data = ['msg' => 'ハロー', 'products' => $products];
         return view('productlist',$data);
     }
 
-    public function edit(Request $request) {
-        $items = DB::select('SELECT * from items where id =:id', ['id'=>$request->id]);
-        return view('edit',['items' => $items[0]]);
+    public function edit(Request $request) 
+    {
+        $item = DB::table('items')->where('id', '=',$request->id)->first();
+        return view('edit',['items' => $item]);
     }
 
-    public function update(Request $request,$id){
-        $request->validate([
-            'name' =>'required',
-            'arr' => 'required',
-            'manufacturer' => 'required',
-            'price' =>  'required',
-        ]);
-
+    public function update(ProductPost $request,$id)
+    {
         $param = [
             'user_id' => Auth::id(),
             'product_name' => $request->input('name'),
@@ -42,37 +41,25 @@ class ProductController extends Controller
         return redirect('/list');
     }
 
-    public function delete(Request $request) {
+    public function delete(Request $request)
+    {
         DB::table('items')->where('id', $request->id)->delete();
 
         return redirect('/list');
     }
 
-    public function addConfirm(Request $request)
+    public function addConfirm(ProductPost $request)
     {
-        $request->validate([
-            'name' =>'required',
-            'arr' => 'required',
-            'manufacturer' => 'required',
-            'price' =>  'required',
-        ]);
         $inputs = $request->all();
         return view('confirm',['inputs'=>$inputs]);
     }
 
-    public function addNewProduct(Request $request) {
-
+    public function addNewProduct(Request $request) 
+    {
         if($request->get('back')){
             return redirect('/add')->withInput();
         }
 
-        $request->validate([
-            'name' =>'required',
-            'arr' => 'required',
-            'manufacturer' => 'required',
-            'price' =>  'required',
-        ]);
-        
         DB::table('items')->insert([
             [
                 'user_id' => Auth::id(),

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\ContactMailPost;
+use App\Http\Requests\MailPost;
 use Illuminate\Http\Request;
 use App\Mail\SampleMail;
 use Illuminate\Support\Facades\Mail;
@@ -12,21 +15,12 @@ class contactController extends Controller
         return view('contact');
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactMailPost $request)
     {
-        //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
-        $request->validate([
-            'name' =>  'required|string|max:255',
-            'email' => 'required',
-            'tell' => 'required|min:11|numeric',
-            'message' => 'required',
-        ]);
-        
         //フォームから受け取ったすべてのinputの値を取得
         $inputs = $request->all();
 
         return view('contactConfirm',['inputs' => $inputs]);
-
     }
 
     public function send(Request $request)
