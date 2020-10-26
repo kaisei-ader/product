@@ -14,6 +14,8 @@ Route::get('/home','HomeController@index');
 
 Route::get('/list','ProductController@showList')->name('product.list');
 Route::post('/list/{id}', 'ProductController@delete');
+Route::get('/list/{id}', 'ProductController@edit')->name('list.edit');
+Route::put('list/edit/{id}', 'ProductController@update')->name('list.update');
 
 Route::get('/add','ProductController@showAddForm');
 Route::post('/add/confirm','ProductController@addConfirm')->name('product.add.confirm');

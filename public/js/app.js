@@ -6340,7 +6340,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=No
 exports.push([module.i, "@import url(https://raw.githubusercontent.com/filipelinhares/ress/master/ress.css);", ""]);
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\n\n.product_title {\n  margin: 100px 0 0 100px;\n  font-family: Noto Sans JP, sans-serif;\n  color: #525151;\n}\n.product_title h1 {\n  border-left: solid 10px skyblue;\n  padding-left: 10px;\n}\n\ntable {\n  margin: 0 auto;\n  margin-top: 30px;\n  border-collapse: collapse;\n  border-spacing: 0;\n  width: 90%;\n}\ntable tr {\n  border: solid 3px #eee;\n  cursor: pointer;\n  color: #525151;\n}\ntable th,\ntable td {\n  border-right: solid 3px #eee;\n  text-align: center;\n  color: #525151;\n  width: 25%;\n  padding: 15px 0;\n}\n\n.pagination {\n  text-align: center;\n  width: 70%;\n  margin: 0 auto;\n  margin-top: 30px;\n  justify-content: center;\n}", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\n\n.product_title {\n  margin: 100px 0 0 100px;\n  font-family: Noto Sans JP, sans-serif;\n  color: #525151;\n}\n.product_title h1 {\n  border-left: solid 10px skyblue;\n  padding-left: 10px;\n}\n\ntable {\n  margin: 0 auto;\n  margin-top: 30px;\n  border-collapse: collapse;\n  border-spacing: 0;\n  width: 95%;\n}\ntable tr {\n  border: solid 3px #eee;\n  cursor: pointer;\n  color: #525151;\n}\ntable th,\ntable td {\n  border-right: solid 3px #eee;\n  text-align: center;\n  color: #525151;\n  width: 15%;\n  padding: 15px 0;\n}\n\n.pagination {\n  text-align: center;\n  width: 70%;\n  margin: 0 auto;\n  margin-top: 30px;\n  justify-content: center;\n}", ""]);
 
 // exports
 

@@ -19,12 +19,24 @@
                 <div class="form-group">
                   <label for="name">商品名</label>
                   <input type="text" class="form-control" name="name" id="name" value="{{ old ('name') }}" />
+                  @if ($errors->has('name'))
+                  <p class="error-message">{{ $errors->first('name') }}</p>
+                  @endif
                   <label for="arrival">入荷元</label>
                   <input type="text" class="form-control" name="arr" id="arrival"  value="{{ old ('arr') }}"/>
+                  @if ($errors->has('arr'))
+                  <p class="error-message">{{ $errors->first('arr') }}</p>
+                  @endif
                   <label for="manufacturer">製造元</label>
                   <input type="text" class="form-control" name="manufacturer" id="manufacturer"value="{{ old ('manufacturer') }}" />
+                  @if ($errors->has('manufacturer'))
+                  <p class="error-message">{{ $errors->first('manufacturer') }}</p>
+                  @endif
                   <label for="price">値段</label>
                   <input type="text" class="form-control" name="price" id="price" value="{{ old ('price') }}"/>
+                  @if ($errors->has('price'))
+                  <p class="error-message">{{ $errors->first('price') }}</p>
+                  @endif
                 </div>
                 <div class="text-right">
                   <button type="submit" class="btn btn-primary">送信</button>

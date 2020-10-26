@@ -18,6 +18,30 @@ class ProductController extends Controller
         return view('productlist',$data);
     }
 
+    public function edit(Request $request) {
+        $items = DB::select('SELECT * from items where id =:id', ['id'=>$request->id]);
+        return view('edit',['items' => $items[0]]);
+    }
+
+    public function update(Request $request,$id){
+        $request->validate([
+            'name' =>'required',
+            'arr' => 'required',
+            'manufacturer' => 'required',
+            'price' =>  'required',
+        ]);
+
+        $param = [
+            'user_id' => Auth::id(),
+            'product_name' => $request->input('name'),
+            'arrival_source' =>  $request->input('arr'),
+            'manufacturer' =>  $request->input('manufacturer'),
+            'price' =>  $request->input('price')
+           ];
+        DB::table('items')->where('id',$request->id)->update($param);
+        return redirect('/list');
+    }
+
     public function delete(Request $request) {
         DB::table('items')->where('id', $request->id)->delete();
 
@@ -41,6 +65,13 @@ class ProductController extends Controller
         if($request->get('back')){
             return redirect('/add')->withInput();
         }
+
+        $request->validate([
+            'name' =>'required',
+            'arr' => 'required',
+            'manufacturer' => 'required',
+            'price' =>  'required',
+        ]);
         
         DB::table('items')->insert([
             [

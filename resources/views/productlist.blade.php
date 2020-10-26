@@ -20,6 +20,7 @@
                 <th>入荷元</th>
                 <th>製造元</th>
                 <th>金額</th>
+                <th>編集</th>
                 <th>削除</th>
             </tr>
             @foreach($products as $product)
@@ -28,6 +29,7 @@
                 <td>{{ $product->arrival_source }}</td>
                 <td>{{ $product->manufacturer }}</td>
                 <td>{{ $product->price }}</td>
+                <th><a href="{{ route('list.edit',$product->id)}}">編集</a></th>
                 <form method="post" action="/list/{{$product->id}}">
                     {{ csrf_field() }}
                     <td> 
