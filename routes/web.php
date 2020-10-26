@@ -13,6 +13,7 @@ Auth::routes();
 Route::get('/home','HomeController@index');
 
 Route::get('/list','ProductController@showList')->name('product.list');
+Route::post('/list/{id}', 'ProductController@delete');
 
 Route::get('/add','ProductController@showAddForm');
 Route::post('/add/confirm','ProductController@addConfirm')->name('product.add.confirm');

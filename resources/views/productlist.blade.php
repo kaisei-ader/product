@@ -20,6 +20,7 @@
                 <th>入荷元</th>
                 <th>製造元</th>
                 <th>金額</th>
+                <th>削除</th>
             </tr>
             @foreach($products as $product)
             <tr>
@@ -27,6 +28,13 @@
                 <td>{{ $product->arrival_source }}</td>
                 <td>{{ $product->manufacturer }}</td>
                 <td>{{ $product->price }}</td>
+                <form method="post" action="/list/{{$product->id}}">
+                    {{ csrf_field() }}
+                    <td> 
+                       <input type="submit" value="削除" class="btn btn-danger btn-sm"
+                        onclick='return confirm("本当に削除しますか？");'>
+                    </td>
+                </form>
             </tr>
             @endforeach
         </table>

@@ -18,6 +18,12 @@ class ProductController extends Controller
         return view('productlist',$data);
     }
 
+    public function delete(Request $request) {
+        DB::table('items')->where('id', $request->id)->delete();
+
+        return redirect('/list');
+    }
+
     public function addConfirm(Request $request)
     {
         $request->validate([
